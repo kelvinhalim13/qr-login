@@ -34,29 +34,35 @@ var server= http.createServer(function(request, response) {
                               body += chunk.toString();
                 });
 
-            request.on('end', function () {
-                var params = JSON.parse(body);
-                console.log("Recived Params: "+JSON.stringify(params));
-                        var uuId = params.uuid;
-                        var accessToken = params.access_token;
 
-                        var msg = {'op':'authdone','accessToken':accessToken};
+                    request.on('end', function () {
+                        var params = JSON.parse(body);
+                        console.log("Recived Params: "+JSON.stringify(params));
+                        var params = JSON.parse(body);
+
+                        var uuId = params.uuid;
+                        var accessToken = params.user_id;
+
+                        var msg = {'op':'authdone','userId':accessToken};
                         if(clients[uuId] != undefined || clients[uuId] != null)
                         {
-                                clients[uuId].send(JSON.stringify(msg),{mask:false});
-                                delete clients[uuId];
-                                response.end('{"status":"OK"}');
+                            // console.log("Before "+Object.size(clients));
+                            clients[uuId].send(JSON.stringify(msg),{mask:false});
+                            delete clients[uuId];
+                            // console.log("After "+Object.size(clients));
+
+                            response.end('{"status":"OK"}');
 
                         }
                         else
                         {
-                                response.end('{"status":"NOK"}');
+                            response.end('{"status":"NOK"}');
                         }
-                        });
+                    });
                 }
                 else
                 {
-                          response.end('{"status":"NOK"}');
+                    response.end('{"status":"NOK"}');
 
                 }
         }
@@ -77,7 +83,7 @@ var server= http.createServer(function(request, response) {
 
 var WebSocketServer = require('ws').Server
 var uuid = require('node-uuid');
-var wss = new WebSocketServer({ path:'/gencode',server:server,autoAcceptConnections: false});
+var wss = new WebSocketServer({server:server,autoAcceptConnections: false});
 
 
 var clients = {};
