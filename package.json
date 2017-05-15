@@ -1,20 +1,24 @@
 {
-  "name": "websockets",
+  "name": "qr-login",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "author": "",
   "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/markbrown4/websockets.git"
+  "scripts": {
+    "start": "node server.js"
   },
-  "bugs": {
-    "url": "https://github.com/markbrown4/websockets/issues"
-  },
-  "homepage": "https://github.com/markbrown4/websockets#readme",
-  "description": "",
   "dependencies": {
     "express": "^4.13.4",
     "ws": "^1.1.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kelvinhalim13/qr-login.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kelvinhalim13/qr-login/issues"
+  },
+  "homepage": "https://github.com/kelvinhalim13/qr-login#readme",
+  "description": ""
 }
