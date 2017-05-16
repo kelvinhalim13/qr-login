@@ -1,4 +1,4 @@
-var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "104.27.164.87";
 var port      = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 
 var WebSocketServer = require('ws').Server
