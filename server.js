@@ -75,6 +75,9 @@ var server= http.createServer(function(request, response) {
 
 }).listen(port,ipaddress);
 
+console.log(ipaddress);
+console.log(port);
+
 var WebSocketServer = require('ws').Server
 var uuid = require('node-uuid');
 var wss = new WebSocketServer({ path:'/gencode',server:server,autoAcceptConnections: false});
