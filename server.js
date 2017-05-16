@@ -123,8 +123,8 @@ var port2      = 701;
 var WebSocketServer = require('ws').Server
 var uuid = require('node-uuid');
 var wss = new WebSocketServer({ port: port1,server:ip });
-console.log(wss);
-
+// console.log(wss);
+console.log('ip '+ip);
 var clients = {};
 var dumCounter=0;
 wss.on('connection', function connection(ws) {
