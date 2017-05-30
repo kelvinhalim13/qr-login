@@ -5,7 +5,7 @@ Object.size = function(obj) {
     }
     return size;
 };
-var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+var ipaddress = process.env.OPENSHIFT_NODEJS_IP || "202.73.58.168";
 var port      = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 
 var http = require("http");
